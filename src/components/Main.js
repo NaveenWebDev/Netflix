@@ -19,9 +19,9 @@ const Main = () => {
                 membership.
               </p>
 
-              <div className="flex justify-center items-center flex-col gap-3 mt-3">
+              <div className="flex justify-center items-center flex-col gap-3 mt-3 w-[100%] md:flex-row">
                 <input type="email" className="bg-[#31313175] border font-bold rounded-md text-2xl py-3 px-6 mx-3" name="email" id="email" placeholder="Email Address"/>
-                <button className="bg-[#E50914] text-white font-bold text-2xl py-3 px-6 rounded-md">Get Started</button>
+                <button className="bg-[#E50914] text-white font-bold md:text-2xl py-3 px-6 rounded-md">Get Started</button>
               </div>
             </div>
           </div>
