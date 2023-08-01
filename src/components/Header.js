@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '../assets/logo-removebg-preview.png'
-
+import { Link } from 'react-router-dom'
 const Header = () => {
   return (
     <>
@@ -14,7 +14,8 @@ const Header = () => {
                         <option value="English" selected>Englist</option>
                         <option value="Hindi" >Hindi</option>
                     </select>
-                    <button className='bg-[#E50914] text-white py-1 px-3 rounded-md'>Sign in</button>
+
+                    <Link to="/SignIn" className='bg-[#E50914] text-white py-1 px-3 rounded-md'>Sign in</Link>
                     </div>
                 </div>
             </div>
