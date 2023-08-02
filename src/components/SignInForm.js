@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/logo-removebg-preview.png";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { initializeApp } from "firebase/app";
@@ -43,6 +43,10 @@ const SignInForm = ({ page }) => {
     }
   };
 
+  useEffect(()=>{
+    setUser(false)
+  },[page])
+
   return (
     <>
       <div className="formHeader h-screen relative">
@@ -61,7 +65,7 @@ const SignInForm = ({ page }) => {
               value={email}
               className="bg-[#323233] text-slate-400 px-8 py-3 rounded-md"
               name="email"
-              placeholder="Email or Phone Number"
+              placeholder="Enter your Email"
               required
               onChange={(e) => setEmail(e.target.value)}
             />
