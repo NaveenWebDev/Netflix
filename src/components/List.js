@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const List = () => {
   const [cato, setCato] = useState([]);
+  const [movie, setMovie] = useState([]);
 
   const apiEndpoint = "https://api.themoviedb.org/3";
   const apikey = "703127aec319a7333d8543d8113944a6";
@@ -33,33 +34,35 @@ const List = () => {
       fetch(categories)
           .then(res=>res.json())
           .then(data=> {
-              console.log(data.results[0].backdrop_path)
-          })
+             const movieData = data.results
+              setMovie(movieData);
+            })
   }
-  console.log(cato)
 
   return (
     <>
       {
         cato.map((value) => { 
           return(
-        <div className="border border-red-700">
+        <div>
           <h2 className="text-2xl font-bold">{value.name}</h2>
-          <div className="border border-blue-500 overflow-x-scroll">
+          <div className="overflow-x-scroll">
 
           <div className="img w-[200px] bg-slate-500 flex m-2 gap-3">
+          {
+            movie.map((value, index)=>{
+              return(
             <img 
-              src="https://koimoi.com/wp-content/new-galleries/2015/12/airlift-movie-poster-4.jpg" 
+              key={index}
+              src= {imgPath+value.backdrop_path}
               alt="moviePoster" 
               height="100%"
               width="100%"
+              className="hover:scale-110 transition-all duration-100"
             />
-            <img 
-              src="https://koimoi.com/wp-content/new-galleries/2015/12/airlift-movie-poster-4.jpg" 
-              alt="moviePoster" 
-              height="100%"
-              width="100%"
-            />
+              )
+            })
+          }
           </div>
 
           </div>
